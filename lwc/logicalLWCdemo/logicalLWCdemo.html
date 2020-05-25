@@ -1,0 +1,52 @@
+<template>
+    <!--lightning-card title="Contact List">
+        <lightning-layout  verticle-align="center">
+            <lightning-layout-item padding="around-small" >
+                <lightning-input label="Find Contact" value={searchKey} onchange={handleChange}>
+                    </lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+
+
+        <lightning-layout vertical-align="center">
+            <template for:each={contacts} for:item="contact" >
+                <lightning-layout-item key={contact.key} item padding="around-small" >
+                    <p>{contact.Name}</p>
+                    <p>{contact.Email}</p>
+                    <p>{contact.Phone}</p>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+    </lightning-card-->
+    <lightning-layout>
+        <lightning-layout-item>
+            <template if:true={selectAccount}>
+                <p>{selectAccount.Name}</p>
+            </template>
+        </lightning-layout-item>
+    </lightning-layout>
+
+    <lightning-card title="Account List">
+        <lightning-layout  verticle-align="center">
+            <lightning-layout-item padding="around-small" >
+                <lightning-input label="Find Account" value={searchKeyAccount} onclick={handleChangeAccount} >
+                </lightning-input>
+                <lightning-button label="Find Accounts" onclick={findAccounts}>
+
+                </lightning-button>
+                
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <lightning-layout vertical-align="center">
+        <template for:each={accounts} for:item="account" >
+            <c-account-tile key={account.Id} onselect={handleSelectRec} account={account}></c-account-tile>
+            <!--lightning-layout-item key={account.key} item padding="around-small" >
+                <p>{account.Name}</p>
+                
+            </lightning-layout-item-->
+        </template>
+    </lightning-layout>
+    </lightning-card>
+    
+</template>
